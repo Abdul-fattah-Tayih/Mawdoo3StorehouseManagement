@@ -1,0 +1,11 @@
+Terminal
+
+$ crontab -e
+
+add this line to the bottom of the file
+               [Project Directory]                                                              [Debug file directory]
+* * * * * php /home/ubuntu/Desktop/Projects/StorehouseManagement/artisan schedule:run 1>> /home/ubuntu/Desktop/Projects/log 2>&1
+
+open terminal in your project and add
+
+php artisan schedule:run

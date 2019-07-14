@@ -75,6 +75,6 @@ class CategoryController extends Controller
             flash('Can\'t delete '.$category->name.' because it has associated products')->warning();
         }
 
-        return redirect('/categories');
+        return redirect()->back();
     }
 }

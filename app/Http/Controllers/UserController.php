@@ -101,6 +101,6 @@ class UserController extends Controller
             flash('can\'t delete user because it is associated with products')->warning();
         }
 
-        return redirect('/users');
+        return redirect()->back();
     }
 }

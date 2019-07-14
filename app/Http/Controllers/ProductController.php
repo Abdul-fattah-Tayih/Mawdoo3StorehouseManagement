@@ -86,7 +86,8 @@ class ProductController extends Controller
             flash('Decrease quantity successfully')->success();
         }
 
-        return redirect('/products');
+        //Return to the current page
+        return redirect()->back();
     }
     /**
      * Show the form for editing the specified resource.
@@ -141,6 +142,7 @@ class ProductController extends Controller
     {
         Product::destroy($id);
         flash('deleted successfully')->success();
-        return redirect('/products');
+        // return to same page
+        return redirect()->back();
     }
 }

@@ -1,6 +1,6 @@
 ## Warehouse Management
 
-This application provides basic users, products and categories management for warehouses, this application also comes with a daily analytics cronjob that archives your data, as well as a database seeder to fill your app with test data.
+This php laravel application provides basic users, products and categories management for warehouses, this application also comes with a daily analytics cronjob that archives your data, as well as a database seeder to fill your app with test data.
 
 ### Installation Steps
 

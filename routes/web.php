@@ -18,7 +18,7 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
     Route::resource('products', 'ProductController');
-    Route::get('products/decrement/{id}', 'ProductController@decrement');
+    Route::patch('products/decrement/{id}', 'ProductController@decrement')->name('products.decrement');
 
     Route::resource('categories', 'CategoryController');
 

@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with(['categories','user'])->paginate(15);
+        // include related fields for each row using the methods defined in the model
+        $products = Product::with(['categories','user'])->paginate(10);
         return view('products.index')->with(compact('products'));
     }
 
@@ -82,7 +83,7 @@ class ProductController extends Controller
         else
         {
             $product->decrement('quantity', 1);
-            flash('success')->success();
+            flash('Decrease quantity successfully')->success();
         }
 
         return redirect('/products');

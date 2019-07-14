@@ -35,7 +35,11 @@
                         <td>{{$prod->price}}</td>
                         <td>
                             {{$prod->quantity}}
-                            <a href="{{url('products/decrement/').'/'.$prod->id}}" class="ml-1 btn btn-primary"> Decrease </a>
+                            <form class="d-inline" method="POST" action="{{ route('products.decrement', [ 'id' => $prod->id]) }}">
+                                {!! csrf_field() !!}
+                                {!! method_field('patch') !!}
+                                <button class="btn btn-primary"> Decrease </button>
+                            </form>
                         </td>
                         <td><img class="img-thumbnail" style="max-width:200px;" src="{{$prod->image}}"></td>
                         <td>{{$prod->user->name}}</td>

@@ -45,8 +45,8 @@ class ProductController extends Controller
         $product = Product::create([
             'name'           => $request->input('name'),
             'description'    => $request->input('description'),
-            'quantity'       => ($request->input('quantity')===null)? 1 : $request->input('quantity')===null,
-            'price'          => ($request->input('price')===null)? 1 : $request->input('price')===null,
+            'quantity'       => ($request->input('quantity')===null)? 1 : $request->input('quantity'),
+            'price'          => ($request->input('price')===null)? 1 : $request->input('price'),
             'image'          => $request->input('image'),
             'created_by'     => \Auth::user()->id
         ]);
@@ -118,8 +118,8 @@ class ProductController extends Controller
         $product->update([
             'name'           => $request->input('name'),
             'description'    => $request->input('description'),
-            'quantity'       => ($request->input('quantity')===null)? 1 : $request->input('quantity')===null,
-            'price'          => ($request->input('price')===null)? 1 : $request->input('price')===null,
+            'quantity'       => ($request->input('quantity')===null)? 1 : $request->input('quantity'),
+            'price'          => ($request->input('price')===null)? 1 : $request->input('price'),
             'image'          => $request->input('image')
         ]);
 

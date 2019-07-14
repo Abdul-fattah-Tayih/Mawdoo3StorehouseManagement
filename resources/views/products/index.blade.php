@@ -1,5 +1,5 @@
 @extends('shared.layout')
-
+@section('title', 'Products')
 @section('content')
     <div class="container my-5">
         <div class="d-flex justify-content-between">

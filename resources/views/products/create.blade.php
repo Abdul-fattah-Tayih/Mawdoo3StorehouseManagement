@@ -1,5 +1,5 @@
 @extends('shared.layout')
-
+@section('title', 'Create Product')
 @section('content')
     <div class="container d-flex justify-content-center align-items-center" style="height:75vh">
         <div class="card" style="width: 40rem;">

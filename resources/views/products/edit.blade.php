@@ -1,10 +1,10 @@
 @extends('shared.layout')
-
+@section('title', 'Edit Product')
 @section('content')
     <div class="container d-flex justify-content-center align-items-center" style="height:75vh">
         <div class="card" style="width: 40rem;">
             <div class="card-header">
-                <h3 class="card-title font-weight-light">Edit </h3>
+                <h3 class="card-title font-weight-light">Edit {{$product->name}}</h3>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{route('products.update', ['id' => $product->id])}}">

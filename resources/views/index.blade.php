@@ -1,5 +1,5 @@
 @extends('shared.layout')
-
+@section('title', 'Home')
 @section('content')
     <div class="container text-center">
         <h1 class="font-weight-light my-3"> Storehouse Management </h1>

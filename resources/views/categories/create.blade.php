@@ -1,10 +1,10 @@
 @extends('shared.layout')
-
+@section('title', 'Create Category')
 @section('content')
     <div class="container d-flex justify-content-center align-items-center" style="height:75vh">
         <div class="card" style="width: 28rem;">
             <div class="card-header">
-                <h3 class="card-title font-weight-light"> Create </h3>
+                <h3 class="card-title font-weight-light"> Create Category </h3>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ route('categories.store') }}">

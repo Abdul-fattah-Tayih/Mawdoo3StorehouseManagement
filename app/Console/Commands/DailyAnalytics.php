@@ -38,9 +38,9 @@ class DailyAnalytics extends Command
     public function handle()
     {
         \App\TotalArchive::create([
-            'total_products'    => \App\Product::all()->count(),
-            'total_categories'  => \App\Category::all()->count(),
-            'total_users'       => \App\User::all()->count()
+            'total_products'    => \App\Product::count(),
+            'total_categories'  => \App\Category::count(),
+            'total_users'       => \App\User::count()
         ]);
 
         echo "Analytics saved\n";

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -36,23 +37,17 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-         $request->validate([
-            'name'          => 'required',
-            'categories'    => 'required'
-        ]);
-
         $product = Product::create([
             'name'           => $request->input('name'),
             'description'    => $request->input('description'),
             'quantity'       => ($request->input('quantity')===null)? 1 : $request->input('quantity'),
             'price'          => ($request->input('price')===null)? 1 : $request->input('price'),
             'image'          => $request->input('image'),
-            'created_by'     => \Auth::user()->id
+            'user_id'        => \Auth::user()->id
         ]);
 
-        $product->user()->associate(\Auth::user()->id);
         $product->categories()->attach($request->input('categories'));
         $product->save();
 
@@ -76,12 +71,9 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        if($product->quantity-1 < 0)
-        {
+        if ($product->quantity-1 < 0) {
             flash('Quantity cannot be negative')->warning();
-        }
-        else
-        {
+        } else {
             $product->decrement('quantity', 1);
             flash('Decrease quantity successfully')->success();
         }
@@ -109,13 +101,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        $request->validate([
-            'name'          => 'required',
-            'categories'    => 'required'
-        ]);
-
         $product = Product::findOrFail($id);
         $product->update([
             'name'           => $request->input('name'),
@@ -125,7 +112,7 @@ class ProductController extends Controller
             'image'          => $request->input('image')
         ]);
 
-        $product->categories()->sync($request->input('categories'));
+        $product->categories()->attach($request->input('categories'));
 
         flash('edits saved')->success();
 

@@ -28,6 +28,6 @@ class User extends Authenticatable
     ];
 
     function products(){
-        return $this->hasMany(Product::class, 'created_by', 'id');
+        return $this->hasMany(Product::class);
     }
 }

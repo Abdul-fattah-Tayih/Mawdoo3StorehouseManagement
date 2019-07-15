@@ -18,11 +18,11 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->integer('quantity')->unsigned()->default('1');
-            $table->integer('price')->unsigned()->default('1');
+            $table->double('price')->unsigned()->default('1');
             $table->string('image')->nullable();
-            $table->integer('created_by')->unsigned();
+            $table->integer('user_id')->unsigned();
 
-            $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

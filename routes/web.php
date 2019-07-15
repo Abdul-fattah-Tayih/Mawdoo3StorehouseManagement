@@ -25,7 +25,5 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('users', 'UserController');
     Route::get('users/{user}/edit/password', 'UserController@editPassword')->name('users.editPassword');
     Route::patch('users/password/{user}', 'UserController@updatePassword')->name('users.updatePassword');
-
-    
 });
 

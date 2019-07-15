@@ -37,7 +37,7 @@
                         <label> Categories </label>
                         <select name='categories[]' class="form-control" multiple>
                             @foreach ($categories as $cat)
-                                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                <option value="{{$cat->id}}" {{ in_array($cat->id, $product->categories->pluck('id')->toArray())? 'selected' : '' }}>{{$cat->name}}</option>
                             @endforeach
                         </select>
                     </div>

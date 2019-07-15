@@ -29,9 +29,9 @@ class HomeController extends Controller
     public function home()
     {
         $analytics = array([
-            'total_products'    => \App\Product::all()->count(),
-            'total_categories'  => \App\Category::all()->count(),
-            'total_users'       => \App\User::all()->count()
+            'total_products'    => \App\Product::count(),
+            'total_categories'  => \App\Category::count(),
+            'total_users'       => \App\User::count()
         ]);
         return view('index')->with(compact('analytics'));
     }
